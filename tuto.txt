@@ -1,0 +1,11 @@
+http://docs.oracle.com/javase/tutorial/getStarted/cupojava/netbeans.html
+
+set path:
+http://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html#path
+
+
+http://www.youtube.com/watch?v=SX8N2KGpGBw&list=RD_ECTWDCwcZg
+
+
+
+C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.7.0_45\bin

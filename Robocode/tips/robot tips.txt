@@ -1,0 +1,7 @@
+http://www.ibm.com/developerworks/library/j-circular/index.html
+http://www.ibm.com/developerworks/library/j-dodge/index.html
+http://www.ibm.com/developerworks/java/library/j-movement/index.html
+http://www.ibm.com/developerworks/library/j-pred-targeting/index.html
+http://www.ibm.com/developerworks/library/j-antigrav/index.html
+http://www.ibm.com/developerworks/library/j-robotips/
+http://robowiki.net/wiki/Robocode/Add_a_Robot_Project

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://norfipc.com/articulos/intrusiones-red.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<title>Detectar intrusiones de red, conexiones entrantes y ataques a la PC</title>
+<meta name="Description" content="Como detectar si hay alguien conectado a tu PC a traves de la red, conocer conexiones entrantes y salientes, cerrar puertos, peligro del archivo hosts.">
+<meta name="author" content="Norfi Carrodeguas">
+<meta name="Robots" content="index, follow">
+<link rel="shortcut icon" href="http://norfipc.com/favicon.ico">
+<link rel="alternate" title="RSS" href="http://norfipc.com/rss.rss" type="application/rss+xml">
+<link href="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/styleblue.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="canonical" href="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/Detectar intrusiones de red, conexiones entrantes y ataques a la PC.html">
+<style type="text/css" media="screen">
+<!--
+.in1{font-size:16px;padding:4px;margin:12px 0 12px 0;width:280px;}
+.in2{font-size:16px;padding:4px 12px 4px 12px;margin:6px;}
+.entry{font-family:"Segoe UI",Verdana;font-size:17px;}
+.sep{margin:22px 0 22px 0;width:40%;text-align:left;}
+@media screen and (min-width:300px) and (max-width:800px) {
+.entry{font-size:15px;line-height:20px;}
+}
+@media screen and (max-width:479px) {
+.entry{font-size:14px;line-height:18px;}
+}
+ -->
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Como detectar las intrusiones de red en el equipo, consejos para neutralizarlas">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://norfipc.com/articulos/intrusiones-red.html">
+<meta property="og:image" content="http://norfipc.com/img/articulos/intrusiones2.png">
+<meta property="og:site_name" content="NorfiPC">
+<meta property="fb:admins" content="100001543332907"> 
+<meta property="og:description" content="Como conocer si alguien se conecta a tu equipo a través de internet, conocer las conexiones entrantes y salientes establecidas de una conexión de red, saber que puertos están abiertos y como cerrarlos, peligros del archivo hosts.">
+<script async="" src="http://www.google.com/adsense/search/async-ads.js"></script><script src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/cb=gapi.loaded_1" async=""></script><script src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript" async="" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/cse.js"></script><script id="twitter-wjs" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/widgets.js"></script><script id="facebook-jssdk" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/all.js"></script><script type="text/javascript" async="" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/plusone.js" gapi_processed="true"></script><script src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/sf_main.jsp"></script><style type="text/css"></style><script src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/jsapi" type="text/javascript"></script><script type="text/javascript" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/sf_preloader.jsp"></script><link type="text/css" href="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/default+es.css" rel="stylesheet"><link type="text/css" href="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/default+es.I.js"></script><script type="text/javascript" src="http://www.google.com/uds/api/ads/3.0/e53185987535e6f30ba2a81d82168dd1/search.I.js"></script><style type="text/css">
+.gsc-control-cse {
+font-family: Arial, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Arial, sans-serif;
+}
+input.gsc-input {
+border-color: #BCCDF0;
+}
+input.gsc-search-button {
+border-color: #CECECE;
+background-color: #CECECE;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #E9E9E9;
+background-color: #E9E9E9;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-top-color: #FF9900;
+border-left-color: #E9E9E9;
+border-right-color: #E9E9E9;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #E9E9E9;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result.gsc-promotion:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #0000CC;
+}
+.gsc-cursor-page {
+color: #0000CC;
+}
+a.gsc-trailing-more-results:link {
+color: #0000CC;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #000000;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #E9E9E9;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #FF9900;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #336699;
+background-color: #FFFFFF;
+}
+.gsc-completion-title {
+color: #0000CC;
+}
+.gsc-completion-snippet {
+color: #000000;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #0000CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #000000;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #008000;
+}
+</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 7px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><script type="text/javascript" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/sf_code.jsp"></script><script type="text/javascript" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/main.js"></script><script type="text/javascript" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/main(1).js"></script><script type="text/javascript" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/base_single_icon.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script type="text/javascript" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/main(2).js"></script><link rel="stylesheet" href="http://www.best-deals-products.com/ws/css/main.css?v=2014.11.13.NaN.1"></head>
+<body data-twttr-rendered="true"><div id="inicio"></div>
+<div id="bar">
+<a style="color:white;text-decoration:none;" href="http://norfipc.com/index.html"><b>NorfiPC</b></a></div>
+	<div id="logo">
+		<div class="e1"><a href="http://norfipc.com/index.html">norfiPC</a></div>
+		<span><em>ideas, consejos, soluciones prácticas....</em></span><span><em><a href="http://norfipc.com/index.html">Para el Uso de tu PC y la Navegacion en Internet</a></em></span></div>
+<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a href="http://norfipc.com/index.html">Inicio</a></li>
+				<li><a href="http://norfipc.com/internet/index.html" title="Varios artículos relacionados con optimizar la navegación en la red; programas y aplicaciones aconsejadas, así como su uso y configuración.">Internet</a></li>
+				<li><a href="http://norfipc.com/facebook/index.html" title="Todo lo que necesitas en Facebook gratis: información, consejos, cosas nuevas, trucos, imágenes, fotos, avatares, emoticonos, frases, poemas, símbolos, signos, decoraciones y más.">Facebook</a></li>
+                <li><a href="http://norfipc.com/articulos/index.html" title="Artículos Variados Sobre Temas de Interes General. Respuestas a varias cuestiones relacionadas con Windows, correo eléctronico, conexiones, etc.">Como lo Hago</a></li>				
+				 <li><a href="http://norfipc.com/celulares/index.html" title="Información útil sobre el uso de los dispositivos portables que permiten la navegación en internet, como son los teléfonos celulares o móviles Smartphone y las tabletas.">Celulares</a></li>				
+				<li><a href="http://norfipc.com/utiles/index.html" title="Modifica Windows a tu Forma. Cómo ajustar, modificar, optimizar y aprovechar al máximo los recursos de nuestro sistema operativo; trucos, parches, claves para el Registro, comandos en MSDOS, etc.">Modificar Windows</a></li>
+                <li><a href="http://norfipc.com/descargas-gratis/index.html" title="Todo lo relacionado con las descargas de archivos, musica, programas, juegos. Donde descargarlos, consejos, tips.">Descargas</a></li>				
+				<li><a href="http://norfipc.com/web/index.html" title="Conocimientos básicos necesarios para construir tu primera página web">Diseño Web</a></li>
+				<li><a href="http://norfipc.com/about.html" title="Información sobre el sitio NorfiPC, su desarrollador, objetivos, funcionamiento y consejos al navegar">Sobre nosotros</a></li>
+				<li><a href="http://norfipc.com/sitemap.html" title="Diferente forma de ver todo el contenido y las secciones de este sitio">Mapa del Sitio</a></li>
+			</ul>
+		</div>		
+</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+<div id="migaspan">
+<a href="http://norfipc.com/index.html">NorfiPC</a> » 
+<a href="http://norfipc.com/articulos/index.html">Como lo Hago</a> » 
+Detectar intrusiones de red
+</div>
+<div id="sobrante"> 
+<!-- RSS -->
+<a href="http://norfipc.com/rss.xml"><img style="float:right;margin-left:4px;" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/rss24.png" width="24" height="24" alt="FeedRSS" title="Suscríbete al feed o fuentes RSS de este sitio, para que estés actualizado de los últimos artículos publicados"></a>	
+<a style="float:right;font-size:12px;margin:4px 26px 0 0;" href="http://norfipc.com/buscar-sitio.html" target="_blank">Buscar en este sitio</a>	  
+<br></div><br>
+<h1>Como detectar las intrusiones de red en el equipo, consejos para neutralizarlas</h1>
+<!-- +1 asincrono -->
+<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 290px; height: 24px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 290px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I0_1415984072636" name="I0_1415984072636" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>
+<script type="text/javascript">
+window.___gcfg = {lang: 'es-419'};
+(function() 
+{var po = document.createElement("script");
+po.type = "text/javascript"; po.async = true;
+po.src = "https://apis.google.com/js/plusone.js";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(po, s);
+})();
+</script>
+<!-- Facebook I Like asincrono-->
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/QjK2hWv6uak.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/QjK2hWv6uak(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<script type="text/javascript">
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div style="margin:3px;" class="fb-like fb_iframe_widget" data-href="http://norfipc.com/articulos/intrusiones-red.html" data-send="true" data-width="292" data-show-faces="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;href=http%3A%2F%2Fnorfipc.com%2Farticulos%2Fintrusiones-red.html&amp;locale=es_LA&amp;sdk=joey&amp;send=true&amp;show_faces=true&amp;width=292"><span style="vertical-align: bottom; width: 292px; height: 47px;"><iframe name="f2108c282c" width="292px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/like.html" style="border: none; visibility: visible; width: 292px; height: 47px;" class=""></iframe></span></div><br>
+<!-- Twittear -->
+<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/tweet_button.d58098f8a7f0ff5a206e7f15442a6b30.es.html" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 118px; height: 20px;"></iframe>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><br>
+				
+<div class="entry">
+<div style="background-color:#d4eefd;padding:6px;margin:12px 0 12px 0;">
+Como conocer si alguien se conecta a tu equipo a través de internet, conocer las conexiones entrantes y salientes establecidas de una conexión de red, saber que puertos están abiertos y como cerrarlos, peligros del archivo hosts.</div>
+
+<img class="imgcel" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/intrusiones2.png" width="240" height="300" alt="Como detectar las intrusiones de red en el equipo, consejos para neutralizarlas" title="Como detectar las intrusiones de red en el equipo, consejos para neutralizarlas">
+
+¿Tienes alguna duda o sospecha que cuando estas conectado a Internet algún intruso penetra por la conexión de red a tu PC? <br>
+¿Crees que sea posible que aunque tengas un software antivirus instalado puedan espiarte y acceder a tus documentos y archivos personales?<br>
+¿Crees que alguien te pueda robar a través de la red tus contraseñas y datos más secretos? <br>
+Puede que no sea una idea tan descabellada después de todo, al estar conectado a una red estamos expuestos a un inmenso tráfico de aplicaciones diseñadas para penetrar a un equipo por cualquiera de los puertos abiertos.<br><br>
+
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Adaptable -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1427807059973185" data-ad-slot="8210280102" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br><br>
+
+<h2>Peligros de las intrusiones de red</h2><br>
+
+El objetivo de las aplicaciones conocidas como <i>malware</i> es violentar la seguridad de cualquier equipo
+Algunas espían las pulsaciones del teclado y así detectan los nombres de usuario y las contraseñas introducidas, posteriormente esta misma aplicación (conocidas como Spyware) establece una conexión con el sitio web del atacante y envía la información.<br>
+El objetivo de otras (Troyanos) es realizar acciones para facilitar el acceso remoto de un usuario no autorizado al equipo.<br>
+En ocasiones estas pequeñas aplicaciones vienen en el interior de archivos que descargamos de la red, como documentos, juegos, programas gratis, al estar inertes y comprimidas, los antivirus pueden no detectarlas, pero en todos los casos podemos conocer de su actividad, cuando establecen la conexión con el sitio externo.<br>
+Para eso puedes hacer algunas sencillas pruebas, es el propósito de este artículo, no hace falta ningún conocimiento avanzado para eso, ni instalar ninguna aplicación, Windows incluye las herramientas necesarias para ello.<br>
+<br>
+
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Adaptable -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1427807059973185" data-ad-slot="8210280102" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br><br>
+
+<h3>¿Cómo diagnosticar y conocer las conexiones entrantes en el equipo?</h3><br>
+
+Para conocer las conexiones establecidas actualmente solo haz lo siguiente:<br>
+<div style="border:1px solid #ddd;background-color:#FFFFE1;padding:10px;margin:12px 0 12px 0;">
+• Cierra todos los programas y conexiones a la red.<br>
+• Abre una ventana del símbolo del sistema, para eso solo escribe en el cuadro de Inicio: <b>CMD</b> y presiona la tecla Enter.<br>
+• En la ventana de la consola de CMD o MSDOS que se abre, ingresa tal como está aquí escrito: 
+<span class="amarillo"><b>NETSTAT  -n 10</b></span></div>
+
+Si se te hace difícil descarga el archivo batch en el link mas abajo, descomprímelo y ejecútalo.<br><br>
+<a href="http://norfipc.com/ftp/cmd/NETSTAT.zip"><img src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/down.png" width="48" height="48" alt="Batch para ejecutar NETSTAT" title="Archivo batch para ejecutar NETSTAT"> Archivo batch para ejecutar NETSTAT</a><br><br>
+
+Lo que se muestra en la pantalla negra de la consola, es una tabla con 4 columnas y diversas filas que contiene la siguiente información:<br>
+
+<div class="notacontent" style="margin:12px 0 12px 0;padding:10px;">
+<div><b>Proto</b>: Nos indica el protocolo utilizado para la comunicación por cada una de las conexiones activas (La que te interesa es TCP).<br>
+<b>Dirección Local</b>: Nos indica la dirección origen de la conexión y después de los dos puntos: el puerto.<br>
+<b>Dirección Remota</b>: Nos indica la dirección de destino, su <a href="http://norfipc.com/internet/saber-ip.php">IP</a> y el puerto.<br>
+<b>Estado</b>: Nos indica el estado de dicha conexión en cada momento.<br><br>
+
+Los estados posibles son:<br><br>
+<b>LISTENING</b>: El puerto está escuchando en espera de una conexión.<br>
+<b>ESTABLISHED</b>: La conexión ha sido establecida.<br>
+<b>CLOSE_WAIT</b>: La conexión sigue abierta, pero el otro extremo nos comunica que no va a enviar nada más.<br>
+<b>TIME_WAIT</b>: La conexión ha sido cerrada, pero no se elimina de la tabla de conexión por si hay algo pendiente de recibir.<br>
+<b>LAST_ACK</b>: La conexión se está cerrando.<br>
+<b>CLOSED</b>: La conexión ha sido cerrada definitivamente.</div></div>
+
+<div>• En la columna Dirección local la IP <code>127.0.0.1</code> es propia del sistema, si tienes alguna red de área local tiene el formato <code>192.168.*.*</code>.<br>
+• El numero 10 después del comando <code>NETSTAT</code> significa el intervalo en segundos en que se va a actualizar la pantalla, puedes aumentarlo o disminuirlo. </div>
+<div>Después que te familiarices con la información de la ventana entonces conéctate a la red que utilizas y comienza a realizar lo que haces normalmente siempre monitoreando la pantalla de <code>NETSTAT</code>.</div>
+<!--[if lte IE 9]>
+Si utilizas el navegador Internet Explorer puedes verificar las conexiones establecidas en este mismo momento desde aquí, utilizando el siguiente botón:
+<br><input type="button" style="font-size:16px;padding:4px;margin:6px;" value="Ver conexiones establecidas" onclick="parent.location='http://norfipc.com/hta/tools/netstat-conex-establecidas.hta'"><br>
+<![endif]-->
+<br>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1427807059973185" data-ad-slot="8210280102" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br><br>
+
+<h4>¿Cómo verificar e identificar la dirección IP de un sitio web?</h4><br>
+
+<div>Cualquiera conexión establecida extraña que veas y no se corresponde con nada de lo que haces, puedes verificar la IP que aparece en la columna de Conexión remota en el siguiente formulario, introduce la dirección o arrastrala del navegador.</div><br>
+
+<div id="form">
+<!-- Formulario para Whois -->
+<form method="post" action="http://norfipc.com/articulos/intrusiones-red.html#form" name="formulario"><div>
+<input class="in1" type="text" title="Introduce la URL o Nombre del Dominio" name="url" id="url"><br>
+<input class="in2" type="submit" name="submit" value="Verificar Dirección" onclick="document.formulario.action=&#39;http://whois.domaintools.com/&#39; + document.formulario.url.value; document.formulario.submit()">
+<input class="in2" type="reset" value="Aclarar"></div>
+</form>
+</div><br>
+
+<div>Esto puede ser muy útil para detectar la actividad de troyanos, spam y otras intrusiones en nuestra PC, también indispensable para poder diagnosticar cualquier conflicto de redes.</div>
+<hr class="sep">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1427807059973185";
+/* vertical extra */
+google_ad_slot = "1839373434";
+google_ad_width = 200;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script> 	
+<br><br>
+
+<h3>Detectar las conexiones ocultas del equipo con el exterior</h3><br>
+
+El comando NETSAT utilizado anteriormente permite diferentes opciones.<br>
+Para detectar si alguna aplicación en tu computadora está realizando conexiones con el exterior, puedes usar la opción: NETSTAT -b, de ser así identificará y mostrará los datos de la aplicación. Como estos tipos de conexiones suelen ser aleatorias y breves, lo ideal es chequear la conexión cada cierto intervalo de tiempo.<br>
+Lo ideal en este caso es configurar NETSTAT para que haga el chequeo de forma automática y el resultado lo vaya escribiendo en un archivo, se puede lograr fácilmente con la siguiente instrucción:<br>
+<div style="padding:2px;margin:6px 0 6px 0;font-size:1.2em;"> 
+NETSTAT -B 10&gt;&gt;%userprofile%\Desktop\Conexiones_establecidas.txt</div>
+De esta forma NETSTAT chequeará cada 10 segundos las conexiones al exterior y escribirá el resultado en un archivo de texto que creará en el escritorio.<br>
+El archivo creado será nombrado "Conexiones_establecidas.txt", el que podrás revisar y leer periódicamente.<br>
+
+<div style="border:1px solid #ddd;background-color:#e6fcee;padding:10px;margin:16px 0 16px 0;font-style:italic;">
+Todas las opciones que permite el comando NETSTAT, están documentadas en la siguiente página de este sitio, en ella podrás también descargar de forma gratis, varias aplicaciones para hacer más fácil la tarea.<br>
+<a href="http://norfipc.com/redes/netstat-conocer-ver-conexiones-activas.html" target="_blank">Ver, conocer, e identificar con NETSTAT las conexiones activas establecidas en el equipo</a><hr>
+
+También tienes la opción de cargar una infografía que muestra de forma visual el uso elemental y sencillo de NETSTAT, para los que no tienen conocimientos en lo absoluto de los comandos.<br>
+Ver Infografía: <a href="http://norfipc.com/infografia/como-usar-netstat-conocer-conexiones-establecidas.html" target="_blank">Como usar NETSTAT para conocer las conexiones establecidas en tu equipo</a>
+</div><br>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1427807059973185";
+/* vertical extra */
+google_ad_slot = "1839373434";
+google_ad_width = 200;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script> 	
+<br><br>
+
+<h3>¿Cómo conocer los puertos abiertos por Windows en el equipo?</h3><br>
+
+Los puertos de comunicaciones del sistema, son algo parecido a las ventanas y puerta de una casa, a través de ellos se establecen las conexiones y funciona internet, pero también penetra el malware y se comunica con el sitio de su propietario.<br>
+Puedes conocer fácilmente los puertos abiertos en tu sistema en este momento y a la escucha.<br>
+Para saber que puertos tienes abiertos de una forma sencilla, escribe en la ventana de la consola de SND lo siguiente como lo ves aquí y presiona la tecla Enter: <br>
+<div style="padding:2px;margin:6px 0 6px 0;font-size:1.2em;">
+NETSTAT -an |find /i "listening"</div>
+Se mostrará el listado de los puertos que tienes abiertos en este momento.
+<br><br>
+
+Verifica que puertos tienes abiertos en este momento desde aquí, (solo Internet Explorer)<br>
+<input type="button" class="in2" value="Puertos en escucha" onclick="if(navigator.appName.indexOf(&#39;Microsoft Internet Explorer&#39;) != -1){parent.location=&#39;http://norfipc.com/hta/tools/netstat-puertos-escucha.hta&#39;}if(navigator.appName.indexOf(&#39;Netscape&#39;) != -1){
+alert(&#39;Lo siento este vínculo solo funciona con el navegador Internet Explorer.&#39;)}; return false;"><br> 
+No cierres la ventana y sigue leyendo para que sepas el uso de cada uno de ellos.<br><br>
+Pero antes de seguir debes tener presente algunos conceptos:<br>
+
+<div style="font-style:italic;background-color:#d4eefd;padding:10px;margin:12px 0 12px 0;font-size:0.9em;">
+Un puerto abierto no es necesariamente peligroso, estas en riesgo solo si el programa que usa el puerto tiene códigos dañinos. Un puerto no es abierto por el sistema operativo, es abierto por un programa específico queriendo usarlo. Para cerrar un puerto, usualmente solo es necesario cerrar el programa ó servicio que mantiene dicho puerto abierto. Así que no hay razón para cerrar todos los puertos en tu sistema. En realidad, sin tener puertos abiertos, no funcionaría internet!</div><br>
+
+Hay puertos que usas para tu comunicación y servicios de internet y no constituyen ningún peligro como por ejemplo:<br>
+
+<div class="tipcontent" style="margin:12px 0 12px 0;padding:10px;">
+<b>21 Puerto de FTP</b>. Te permite descargar archivos que se encuentran en servidores FTP<br>
+<b>25 SMTP Puerto de email</b>. Uso del correo electrónico<br>
+<b>80 Puerto del HTTP</b>. A traves de el se realiza toda la comunicacion necesaria para el funcionamiento de las páginas web.<br>
+<b>110 POP3 Puerto de email</b>. Uso del correo electrónico<br>
+<b>531 Puerto IRC</b>. Funcionamiento del chat</div><br>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1427807059973185";
+/* vertical extra */
+google_ad_slot = "1839373434";
+google_ad_width = 200;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script> 	
+<br><br>
+
+<h4>¿Cuáles son y como cerrar los puertos peligrosos?</h4><br>
+
+<div class="marco2">
+<b>Puerto 135</b><br>
+El puerto 135 lo comparten el DCOM, programador de tareas y MSDTC, si se tiene cualquiera de esos servicios el puerto permanece abierto y aceptando conexiones entrantes<br>
+Ciérralo deteniendo los servicios anteriores o modificando la siguiente clave del registro:<br>
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Ole</code><br>
+En EnableDCOM, cambiar el parametro Y por N</div>
+
+<div class="marco2">
+<b>Puertos 137,138,139 y 445 </b><br>
+Si el equipo tiene NetBios habilitado, "escucha" en los puertos UDP 137 y 138, y en los TCP 139 y 445. Si NetBios está deshabilitado, sólo escuchará mediante el puerto 445.<br>
+Para deshabilitar NetBios, en propiedades de Protocolo de internet 4(TCP/IPv4) &gt;Opciones avanzadas &gt;WINS selecciona <em>Deshabilitar NetBios a través de TCP/IP</em>.<br>
+Para desactivar completamente NetBios a través del registro modificar la siguiente clave:<br>
+<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NetBT\Parameters</code><br>
+renombrar TransportBindName a TransportBindNameBAK</div>
+
+<div class="marco2">
+<b>Puertos 5000 y 1900 (uPnP)</b><br>
+Deshabilitando  el Servicio de descubrimientos SSDP, cierras las conexiones al puerto 1900 UDP, y el 5000 TCP</div>
+<hr class="sep">
+
+<h3>Herramienta para conocer y configurar los puertos abiertos</h3><br>
+
+Una medida básica de seguridad es conocer que puertos tenemos, cuales están abiertos, quien mandó a abrirlos, que programa o aplicación  se comunica a través de ellos, con quien se comunica, cual es la dirección IP con la que establecen conexión.<br>
+Para eso te ofrezco una alternativa más avanzada, es una diminuta aplicación llamada <i>Current Ports</i>, no es necesario instalar, solo ejecútala y te mostrará en una lista todos los puertos abiertos por conexiones TCP/IP y UDP.<br> 
+Por cada puerto abierto en la lista te muestra información como: el nombre del proceso, dirección IP remota, la ruta de la aplicación que lo crea, cuando fue creado, etc.<br>
+Adicionalmente permite cerrar las conexiones indeseadas, cerrar los procesos, y guardar toda la información en un archivo.<br> 
+La aplicación también marca con un color rosado los puertos sospechosos abiertos por conexiones sin identificar.<br>
+<a href="http://norfipc.com/ftp/varios/cports1.75.zip">Descargar Current Ports</a><br>
+
+Esta es la versión 1.75 traducida al español por mí, para verificar si hay disponible una versión más reciente, puedes acceder a la web de su autor: http://www.nirsoft.net
+<br>
+<div style="border:1px solid #ddd;background-color:#e6fcee;padding:10px;margin:12px 0 12px 0;">
+Toda la información sobre el uso y funcionamiento de los puertos, además varias aplicaciones gratis para facilitar las tareas relacionadas puedes encontrarla en la siguiente página de este sitio:
+<a href="http://norfipc.com/recuperar/puertos-abiertos.html" target="_blank">Conocer los puertos abiertos en la computadora, como cerrarlos</a></div>
+<hr class="sep">
+
+<h3>Precauciones adicionales para impedir las intrusiones en el equipo</h3><br>
+<h4>Deshabilitar Reproducción Automática de Medios Extraíbles</h4><br>
+
+Una recomendación, si a menudo en tu PC se conectan memorias flash, pendrives, tarjetas de memoria o discos duros externos desactiva la reproducción automática de los medios extraíbles, eso te asegurará que no entre de forma automática ningún virus en tu sistema ya que esta es la forma más común de transmisión de ellos.<br> 
+Para eso lee la siguiente página:<br>
+<a href="http://norfipc.com/registro/configurar-autorun-reproduccion-automatica.html" target="_blank">Configurar el autorun o reproducción automática en las unidades.</a><br><br>
+
+<h4>Revisar regularmente el Archivo Hosts</h4><br>
+
+El siguiente paso es revisar el estado de tu archivo hosts. <br>
+<b>¿Que es el archivo host?, ¿cuál es su función?</b><br>
+El archivo hosts es un archivo de texto que se encuentra en la siguiente ruta: <em>C:\Windows\System32\drivers\etc\hosts.</em><br>
+Su función en los sistemas operativos anteriores era la de listar los nombres de dominio con sus respectivas direcciones IP.<br>
+Ya no tiene esta función debido al crecimiento desmesurado de Internet, en la actualidad es más factible buscar esa relación en un servidor de nombre de dominio DNS , pero todavía Windows antes de buscar información externa en un servidor DNS para resolver la IP de una página solicitada busca primero en el archivo hosts.<br>
+De forma predeterminada, después de instalar Windows, la única línea que contiene el archivo host es la dirección: localhost, o sea la dirección del propio equipo cuya IP es 127.0.0.1. <br>
+Se aconseja revisar este archivo, porque existen virus que entre las acciones que realizan, una de ellas es escribir en el archivo host, las URL o direcciones de actualización de los principales programas antivirus, por lo que en caso de tratar de actualizar el antivirus instalado o inclusive acceder a foros populares relacionados con este tema en busca de ayuda, seas redireccionado a tu misma dirección IP.<br>
+Si al revisar el archivo hosts encuentras alguna línea que no sea localhost elimínala con confianza.
+<br>
+<div style="border:1px solid #ddd;background-color:#fcfcea;padding:10px;margin:12px 0 12px 0;font-size:0.9em;">
+En Windows 8 el archivo hosts se encuentra en la siguiente ubicación: "C:\Windows\System32\Drivers\etc"
+</div>
+<br>
+
+<div id="hosts"></div>
+<h4>El poder y la importancia del archivo hosts en Windows.</h4><br>
+
+<div style="border:1px solid #ddd;padding:10px;margin:12px 0 12px 0;font-size:0.9em;">
+Haz la siguiente prueba, es inofensiva pero te demostrará como una simple línea de código que esté en un archivo que ejecutes puede transformar el destino de tu conexión.<br>
+<div style="background-color:#d4eefd;padding:10px;margin:12px 0 12px 0;font-size:0.9em;">
+&#10132; Crea un archivo batch que solo contenga esta línea:<br>
+<code><b>echo 194.224.58.10 google.com &gt;&gt; c:\windows\system32\drivers\etc\hosts</b></code><br>
+Si no sabes cómo es sencillo: copia la línea en el bloc de notas de Windows y guárdalo con cualquier nombre pero que tenga la extensión .cmd, asegúrate que en la pestaña Tipo aparezca: <em>Todos los archivos (*.*)</em>.<br> 
+&#10132; A continuación ejecuta el batch que guardaste.<br>
+&#10132; Abre el navegador web e ingresa la conocida dirección <code><b>google.com</b></code>, pero para tu gran sorpresa la página que cargaras será la de Movistar en <code><b>http://www.movistar.es/on/</b></code>.</div>
+La explicación como ya supondrás es que la línea de código lo que hizo fue transformar tu archivo hosts y estableció que la dirección IP de google.com es 194.224.58.10 cuando en realidad no es cierto.<br>
+Te darás cuenta que con solo una línea de código que pongan por ejemplo en una aplicación freeware que descargues, de forma malintencionada pueden hacer que tu inconscientemente accedas a sitios que ni te imaginas con la mayor confianza del mundo.<br> 
+De esa forma pueden desviar la ruta de los servidores de actualización de tu antivirus, enviarte a sitios de suplantación de identidad (pishing), etc.<br>
+Cuando termines la pequeña prueba accede a tu archivo hosts y borra la entrada que añadiste.</div><br>
+
+Descarga dos aplicaciones útiles para guardar una copia o reemplazar un archivo hosts corrupto por virus.<br><br>
+
+<a href="http://norfipc.com/ftp/redes/ReeplazarHost.zip"><img src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/down.png" width="48" height="48" alt="Restaurar una copia guardada del archivo hosts" title="Restaurar una copia guardada del archivo hosts"> Archivo batch para restaurar una copia guardada del archivo hosts.</a><br><br>
+<a href="http://norfipc.com/ftp/redes/ReeplazarHost2.zip"><img src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/down.png" width="48" height="48" alt="Eliminar el archivo hosts y crear uno con el formato predeterminado de Windows" title="Eliminar el archivo hosts y crear uno con el formato predeterminado de Windows"> Archivo batch para eliminar el archivo hosts y crear uno con el formato predeterminado de Windows.</a><br><br><hr><br>
+		
+<h3>Consejos sobre la seguridad en un equipo</h3><br>
+
+Los mejores consejos para cuestiones de seguridad:<br><br>
+<em><q>Ningún sistema es completamente seguro, el único sistema seguro es aquel que está apagado y desconectado de internet.</q><br>
+<q>La precaución puede llegar a ser el truco más efectivo contra las intrusiones no deseadas</q>.</em><br><br>
+
+<h4>Algunas de las precauciones que se deben tener en cuenta</h4><br>
+
+<div class="marco3">
+• Tener activado el firewall de Windows<br>
+• Usar software de protección antivirus<br>
+• Instalar regularmente los últimos parches de seguridad activando las actualizaciones automáticas.<br> 
+• Evitar la instalación innecesaria de software gratuito (no confundir con programas de código abierto del proyecto GNU). La mayor parte del spyware se instala a través del software gratuito que puedas descargar, creado precisamente para eso, aunque a veces la infección de spyware se contrae simplemente visitando un sitio web.<br>
+• Utilizar Mozilla Firefox, ya que hasta el momento no existe otro navegador que supere los mecanismos de seguridad de Mozilla.<br>
+• Verificar que los ficheros adjuntos que descarguemos no tenga doble extensión, por ejemplo: (fichero.mp3.exe). Para eso es imprescindible en Opciones de carpeta &gt;Ver, desmarcar la casilla <em>Ocultar las extensiones de archivos</em>.<br>
+• Utilizar una cuenta de usuario estándar. Aunque la cuenta de usuario de administrador ofrece un control completo sobre un equipo, el uso de una cuenta estándar puede ayudar que el equipo sea más seguro. De este modo, si otras personas obtienen acceso al equipo mientras haya iniciado la sesión, no pueden alterar la configuración de seguridad del equipo ni cambiar otras cuentas de usuario.</div><br>
+
+De acuerdo al uso que se le dé al equipo, hay algunas opciones de Windows que se pueden deshabilitar completamente, lo que hará nuestro sistema mucho más seguro.<br><br>
+<div class="tipcontent" style="padding:10px;">
+• Acceso remoto en: Mi PC &gt;Propiedades del sistema &gt;Configuración avanzada &gt;Acceso remoto.<br>
+• Entra a Conexiones de red, ve a las propiedades de la conexión que utilices y en Funciones de red desmarca las casillas (no las desinstales) todas excepto: Protocolo de internet 4(TCP/IPv4).<br>
+• Panel de control &gt;Herramientas administrativas &gt;Servicios &gt;Registro remoto Deshabilitarlo. <br>   
+• Panel de control &gt;Herramientas administrativas &gt;Servicios &gt;Servicio Informe de errores de Windows Deshabilitarlo.</div><br>
+
+<div id="soc2"><div id="share"><a rel="nofollow" href="http://www.facebook.com/norfipc.trucos"><img style="float:left;margin-right:12px;" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/norfipc-trucos.jpeg" width="164" height="164" alt="Página Trucos de NorfiPC en Facebook" title="Da un clic para en entrar la página Trucos de NorfiPC en Facebook"></a>Hazte fan de nuestra página en Facebook, para recibir información técnica actualizada y trucos para el uso de la computadora, el celular e internet<br><div class="fb-like-box fb_iframe_widget" data-href="http://www.facebook.com/norfipc.trucos" data-width="260" data-show-faces="false" data-stream="false" data-header="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;header=true&amp;href=http%3A%2F%2Fwww.facebook.com%2Fnorfipc.trucos&amp;locale=es_LA&amp;sdk=joey&amp;show_faces=false&amp;stream=false&amp;width=260"><span style="vertical-align: bottom; width: 260px; height: 70px;"><iframe name="fb201450" width="260px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/like_box(1).html" style="border: none; visibility: visible; width: 260px; height: 70px;" class=""></iframe></span></div><div style="clear:both;"></div><hr style="border:2px dashed #ddd;"><a rel="nofollow" href="https://twitter.com/NorfiPC"><img style="float:left;margin-right:6px;" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/norfipc-twitter.jpeg" width="164" height="164" alt="NorfiPC en Twitter" title="Da un clic para en entrar a NorfiPC en Twitter"></a>Recibe en Twitter a diario, sugerencias sobre contenido útil e interesante, solo síguenos.<br><iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/follow_button.21f7daa948263c3043bab783473c3475.es.html" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 231px; height: 20px;"></iframe><br>¡Damos follow-back a los que nos siguen!<div style="clear:both;"></div><hr style="border:2px dashed #ddd;">Síguenos en <a rel="nofollow" href="https://plus.google.com/+Norfipc/">Google+</a> y te seguimos de vuelta<br><div id="___follow_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 91px; height: 60px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 91px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I1_1415984072650" name="I1_1415984072650" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/follow.html" data-gapiattached="true"></iframe></div></div><br></div>
+<script src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/social-share-2.js"></script><br>
+
+<h3>Otras páginas de este sitio relacionadas en con el tema</h3><br>
+
+<div style="padding:6px;margin:6px 0 6px 0;line-height:24px;">
+&#9668; <a href="http://norfipc.com/articulos/como-proteger-impedir-puedan-hackear-robar-conexion-internet.html">Como proteger e impedir que puedan hackear y robar tu conexión a internet</a><br>
+&#9668; <a href="http://norfipc.com/virus/como-comprobar-conocer-existencia-virus-malware-windows.html">Como comprobar manualmente y conocer la existencia de virus y malware en Windows</a><br>
+&#9668; <a href="http://norfipc.com/virus/evitar-infeccion-virus-malware-email-correo-electronico.html">Evitar la infección por virus o malware a través del correo electrónico e internet</a><br>
+&#9668; <a href="http://norfipc.com/virus/como-prevenir-impedir-evitar-infeccion-virus-malware-windows.html">Como prevenir, impedir y evitar la infección por virus o malware en Windows</a><br>
+&#9668; <a href="http://norfipc.com/redes/descargar-aplicaciones-comandos-batch-script.html">Descargar archivos batch y scripts para reparar problemas de conexiones de internet</a><br>
+</div><br>
+
+<script>
+  (function() {
+    var cx = '017965998053920683407:WMX-1630844121';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div style="font-size:0.9em; ">
+¿Necesitas buscar algo en nuestro sitio? ¡Usa a Google!</div>
+<div><div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-es"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><input autocomplete="off" type="text" size="10" class=" gsc-input" name="search" title="buscar" id="gsc-i-id1" dir="ltr" spellcheck="false" style="outline: none; background: url(http://www.google.com/cse/intl/es/images/google_custom_search_watermark.gif) 0% 50% no-repeat rgb(255, 255, 255);"><input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button"><input type="button" value="Buscar" class="gsc-search-button" title="buscar"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="borrar resultados">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">con la tecnología de</div></td><td class="gsc-branding-img"><img src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">web</div><span class="gs-spacer"> </span><div tabindex="0" class=" gsc-tabHeader gsc-tabhInactive gsc-inline-block">Imagen</div><span class="gs-spacer"> </span></div><div class="gsc-refinementsAreaInvisible"></div><div class="gsc-above-wrapper-area-invisible"><table cellspacing="0" cellpadding="0" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table cellspacing="0" cellpadding="0" class="gsc-resultsHeader"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div class="gsc-result-selector gsc-one-result" title="mostrar un resultado">&nbsp;</div><div class="gsc-result-selector gsc-more-results" title="mostrar más resultados">&nbsp;</div><div class="gsc-result-selector gsc-all-results" title="mostrar todos los resultados">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div><div class="gsc-resultsRoot gsc-tabData gsc-tabdInactive"><table cellspacing="0" cellpadding="0" class="gsc-resultsHeader"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Imagen</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div class="gsc-result-selector gsc-one-result" title="mostrar un resultado">&nbsp;</div><div class="gsc-result-selector gsc-more-results" title="mostrar más resultados">&nbsp;</div><div class="gsc-result-selector gsc-all-results" title="mostrar todos los resultados">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div></div><br>
+
+</div>
+</div>
+</div><!-- end #content -->
+
+<div id="sidebar"><ul><li><div class="post2">Secciones</div><ul><li><a href="http://norfipc.com/index.html">Inicio</a></li><li><a href="http://norfipc.com/facebook/index.html">Para Facebook</a></li><li><a href="http://norfipc.com/amor/index.php">Amor</a></li><li><a href="http://norfipc.com/celulares/index.html">Celulares y tabletas</a></li><li><a href="http://norfipc.com/internet/index.html">Navegar en internet</a></li><li><a href="http://norfipc.com/redes-sociales/index.html">Redes sociales</a></li><li><a href="http://norfipc.com/articulos/index.html">Como lo hago</a></li><li><a href="http://norfipc.com/trucos/index.php">Trucos e Ideas</a></li><li><a href="http://norfipc.com/utiles/index.html">Modificar Windows</a></li><li><a href="http://norfipc.com/comandos/index.html">Comandos</a></li><li><a href="http://norfipc.com/registro/index.html">El Registro</a></li><li><a href="http://norfipc.com/virus/index.html">Virus</a></li><li><a href="http://norfipc.com/redes/index.html">Redes</a></li><li><a href="http://norfipc.com/descargas-gratis/index.html">Descargas gratis</a></li><li><a href="http://norfipc.com/web/index.html">Diseño web</a></li><li><a href="http://norfipc.com/web/publicar-blog-sitio-web-servicios-internet.php">Publicación web</a></li><li><a href="http://norfipc.com/web/optimizar-mejorar-posicionamiento-web-buscadores.php">Posicionamiento web</a></li><li><a href="http://norfipc.com/herramientas/index.php">Herramientas web</a></li><li><a href="http://norfipc.com/codigos/index.php">Códigos</a></li><li><a href="http://norfipc.com/inf/index.html">Informaciones</a></li><li><a href="http://norfipc.com/infografia/index.html">Infografías</a></li><li><a href="http://norfipc.com/recuperar/index.html">Recuperar</a></li><li><a href="http://norfipc.com/mensajes-cristianos/index.php">Mensajes cristianos</a></li><li><a href="https://norfipc.com/fotos-naturaleza/index.php">Fotos de la naturaleza</a></li><li><a href="http://norfipc.com/cuba/index.html">Cuba</a></li><li><a href="http://norfipc.com/about/index.php">Como lo hacemos</a></li></ul></li></ul><div class="post2">Blogs</div><ul><li><ul><li><a rel="nofollow" href="http://norfipc.blogspot.com/">Blog de Norfi Carrodeguas en Blogger</a></li></ul></li></ul><br><div class="fb-like-box fb_iframe_widget" data-href="http://www.facebook.com/norfipc.trucos" data-width="240" data-show-faces="true" data-stream="false" data-header="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;header=true&amp;href=http%3A%2F%2Fwww.facebook.com%2Fnorfipc.trucos&amp;locale=es_LA&amp;sdk=joey&amp;show_faces=true&amp;stream=false&amp;width=240"><span style="vertical-align: bottom; width: 240px; height: 271px;"><iframe name="fd0163174" width="240px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/like_box.html" style="border: none; visibility: visible; width: 240px; height: 271px;" class=""></iframe></span></div><br><br><div id="qrcode"><img src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/chart" width="150" height="150"></div></div>
+<script src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/barb1.js"></script><br>
+
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div><iframe src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/sf_postLocalStorage.html" style="position: absolute; top: -20px; left: -20px; width: 1px; height: 1px;" id="sfPostLocalStorage"></iframe>	
+	<!-- end #page -->
+<div id="post3">
+<div><a href="javascript:history.go(-1)">Anterior</a>&nbsp;|&nbsp;  <a href="http://norfipc.com/articulos/intrusiones-red.html#inicio">Subir</a>  &nbsp;|&nbsp;<a href="javascript:history.go(1)">Siguiente</a></div></div>
+	<div id="footer">
+		<p>Copyright (c) 2014 Norfi Carrodeguas
+		<a rel="author" href="https://profiles.google.com/111787464232412773584/about">Google+</a> HTML5</p>
+	</div>
+	<!-- end #footer -->
+		<!-- Script del Buscador -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17996196-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+<iframe name="oauth2relay443147964" id="oauth2relay443147964" src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/userData.html" style="position: absolute; top: -100px; left: -100px; z-index: -10; border: none; visibility: hidden; width: 1px; height: 1px;"></iframe><iframe src="./Detectar intrusiones de red, conexiones entrantes y ataques a la PC_files/register_server_layer.html" style="position: absolute; width: 1px; height: 1px; left: -100px; top: -100px; visibility: hidden;"></iframe><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 641px; display: none; top: 9091px; position: absolute; left: 459px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><iframe style="position: absolute; width: 1px; height: 1px; top: 0px; left: 0px; visibility: hidden;"></iframe><sfmsg id="sfMsgId" data="{&quot;imageCount&quot;:0,&quot;ip&quot;:&quot;1.1.1.1&quot;}"></sfmsg></body></html>

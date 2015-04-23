@@ -1,0 +1,59 @@
+COMO HACER UNA FUNCION PRINT PARA QUE CUANDO HAGAS:
+
+static void printAll (Collection coll) {
+Iterator iter = coll.iterator( );
+while (iter.hasNext( )) {
+System.out.println(iter.next( ) );
+}
+}
+
+FUNCIONE ( como hago k el system println iter next imprima algo del objeto)
+
+----
+
+public class CountComparator implements Comparator {
+public int compare(Object o1, Object o2) {
+if (o1 != null and
+o2 != null and
+o1 instanceof Count and
+o2 instanceof Count) {
+Count c1 = (Count) o1;
+Count c2 = (Count) o2;
+return (c2.i - c1.i);
+} else {
+return 0;
+}
+}
+}
+
+
+k es el instanceof y el count?
+----------
+
+
+
+
+Si hago Scanner input = new Scanner(System.in)
+double mida
+input = input.nextDouble()
+
+puedo hacer que sirva cualkier double o int? esque sino se me pasa al sigiente input.
+
+
+-------------------------------
+variable quants en la clase electrodomestics, pero que se modifique o lleve una cuenta
+independiente en cada una de sus subclases?
+
+public static int quants;
+
+paper.quants++
+cartuxo.quants++ 
+pero asi no va
+-----------------------------
+
+
+para k es la palabra final en los atributos?
+-----------
+
+Si tengo un arraylist y meto objetos de una clase, como puedo usar una funcion de esa
+clase con el objeto del arraylist?

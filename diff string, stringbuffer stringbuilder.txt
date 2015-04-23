@@ -1,0 +1,10 @@
+La principal diferencia entre las tres clases String mas comúnmente usadas son:
+
+StringBuffer y StringBuilder son mutables, mientras que String es inmutable.
+La  implementación de la clase StringBuffer  es sincronized (sincronizada) mientras StringBuilder no.
+El operador de concatenación “+” es implementado internamente por Java usando StringBuffer o StringBuilder.
+
+Criterios para usar String, StringBuffer o StringBuilder:
+Su el valor del objeto no cambiará, entonces es mejor usar String, dado que es inmutable.
+Si el valor del objeto puede cambiar y solo será modificado por un mismo hilo o thread, entonces usa StringBuilder, porque StringBuilder es unsynchronized (no sincronizado) lo cual significa que será mas rápido.
+Si el valor del objeto puede cambiar y puede ser modificado por mas de un hilo la mejor opción es StringBuffer porque es thread safe (sincronizado).

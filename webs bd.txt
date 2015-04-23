@@ -1,0 +1,42 @@
+https://www.youtube.com/watch?v=DSNfXv0qhOQ
+http://hojadecalculo.net/tag/netbeans/
+
+http://www.nosolounix.com/2010/05/escribir-y-leer-archivos-excel-en-java.html
+• flush() vacía el buffer de salida escribiendo su contenido
+
+https://www.fdi.ucm.es/profesor/jpavon/poo/2.13.EntradaySalida.pdf
+
+http://www.labcom.upcomillas.es/poo/itig/apuntes/Java08.pdf
+
+import java.io.*;
+class LecturaDeLinea {
+public static void main( String args[] ) throws IOException {
+int c;
+int contador = 0;
+// se lee hasta encontrar el fin de línea
+while( (c = System.in.read() ) != '\n' )
+{
+contador++;
+System.out.print( (char) c );
+}
+System.out.println(); // Se escribe el fin de línea
+System.err.println( "Contados "+ contador +" bytes en total." );
+}
+}
+
+http://www.javaworld.com/article/2074940/learn-java/java-app-dev-reading-and-writing-excel-spreadsheets.html
+
+http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/archivos/disco.htm
+http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/archivos/primitivos.htm
+http://www.andykhan.com/jexcelapi/tutorial.html
+
+http://cursodejava.com.mx/cursodejava201.html  ----> panel consultas
+
+
+
+
+
+
+
+
+

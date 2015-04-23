@@ -1,0 +1,582 @@
+
+<!-- saved from url=(0075)http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/subprocesos.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>La clase derivada de Thread</title>
+<style type="text/css"></style></head>
+
+<body>
+
+<h1 align="center">La clase derivada de <em>Thread</em> </h1>
+
+<table width="100%">
+  <tbody><tr>
+    <td width="50%"><p align="left"><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/threads.htm"><img src="./La clase derivada de Thread_files/prev.gif" alt="prev.gif (997 bytes)" width="49" height="40"></a><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/applets.htm"><img src="./La clase derivada de Thread_files/chapter.gif" alt="chapter.gif (1105 bytes)" width="49" height="40"></a><b><a href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><img src="./La clase derivada de Thread_files/home.gif" alt="home.gif (1232 bytes)" width="49" height="40"></a><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/runnable.htm"><img src="./La clase derivada de Thread_files/next.gif" alt="next.gif (1211 bytes)" width="49" height="40"></a></b></p></td>
+    <td width="50%"><h3 align="right"><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/threads.htm">Subprocesos (threads)</a></h3>
+    </td>
+  </tr>
+</tbody></table>
+
+<p><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/subprocesos.htm#El método run">El método <em>run</em> </a></p>
+
+<p><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/subprocesos.htm#Derivando de la clase Thread">Derivando de la clase <em>Thread</em></a></p>
+
+<p><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/subprocesos.htm#Prioridades">Prioridades</a></p>
+
+<p><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/subprocesos.htm#Control de la ejecución de los subprocesos">Control de la ejecución de los
+subprocesos</a></p>
+
+<hr>
+
+<p>Todos los programadores están familiarizados con los programas secuenciales. Todos
+ellos tienen un principio, una secuencia de ejecución y un final. Por ejemplo, una
+aplicación comienza en la función <em>main</em>, ejecuta las sentencias del cuerpo de
+dicha función en orden consecutivo y el programa acaba cuando se llega al final de dicha
+función.</p>
+
+<p>Un subproceso es similar a un programa secuencial, tiene un principio, una secuencia y
+un final. La diferencia fundamental estriba en que un subproceso no es un programa que
+pueda correr aislado, sino que se ejecuta dentro de un programa.</p>
+
+<p>En la figura se muestra un subproceso que corre dentro de un programa.</p>
+
+<p><img src="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/imagenes/threads1.gif" alt="threads1.gif (2879 bytes)" width="0" height="0" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 281px 208px;"></p>
+
+<p>En esta otra figura se muestran dos subprocesos corriendo dentro de un mismo programa</p>
+
+<p><img src="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/imagenes/threads2.gif" alt="threads2.gif (3948 bytes)" width="0" height="0" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 420px 217px;"></p>
+
+<p>Todos estamos acostumbrados a manejar programas que contienen varios subprocesos en
+ejecución. Por ejemplo, mientras escribimos en el procesador de textos Word un subproceso
+se encarga de verificar la ortografía, y de señalar la palabra que no está
+correctamente escrita, e incluso de corregirnos según vamos escribiendo. </p>
+
+<p>La ilusión de la ejecución paralela de los subprocesos en un sistema que tiene una
+única CPU proviene del hecho de que cada subproceso tiene la oportunidad de ejecutar una
+porción de código cada vez a intervalos regulares. Esta aproximación se denomina <em>timeslicing</em>.
+Como la CPU ejecuta millones de instrucciones por segundo, la percepción para el usuario
+es el de una ejecución en paralelo.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="El método run">El método <em>run</em> </a></h2>
+
+<p>El método <em>run</em> es el corazón del subproceso, es donde tiene lugar la acción
+del subproceso. Hay dos modos de proporcionar el el método <em>run</em> a un subproceso: 
+
+</p><ul>
+  <li>Derivando una clase de <em>Thread</em> y redefiniendo el método <em>run</em></li>
+  <li><a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/runnable.htm">Implementando el interface <em>Runnable</em></a> y definiendo la
+    función <em>run</em> de dicho interface.</li>
+</ul>
+
+<p>La razón de que existan estas dos posibilidades es que en Java no existe la herencia
+múltiple. Si una clase deriva de otra no podemos hacer que derive también de <em>Thread</em>.
+Por ejemplo, un applet deriva de la clase base<em> Applet</em> por tanto, ha de
+implementar el interface <em>Runnable</em> para que pueda definir el método <em>run</em>.
+En el estudio de la <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/moviendo.htm">animación</a> veremos esta aproximación.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="Derivando de la clase Thread">Derivando de la clase <em>Thread</em></a></h2>
+
+<p><img src="./La clase derivada de Thread_files/disco.gif" alt="disco.gif (1035 bytes)" align="middle" width="32" height="32"><strong>thread0</strong>:
+<a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/codigo/thread0/Hilo.java">Hilo.java</a>, <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/codigo/thread0/ThreadApp.java">ThreadApp.java</a></p>
+
+<p>Creamos una <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#La clase derivada">clase
+derivada</a> de <em>Thread</em> que redefine el método <em>run</em>.</p>
+
+<pre>public class Hilo <strong>extends Thread</strong> {
+  public Hilo(String nombre) {
+    super(nombre);
+  }
+     public void run(){
+	//definir run...
+    }
+}</pre>
+
+<p>La clase <em>Thread</em> tiene varios constructores, además del constructor por
+defecto (sin argumentos). Al contructor de la clase derivada <em>Hilo</em> le pasamos el
+nombre del subproceso y éste se lo pasa al constructor de la clase base <em>Thread</em>
+mediante la palabra reservada <strong>super</strong>.&nbsp; </p>
+
+<p>&nbsp;</p>
+
+<h3>Creando el subproceso</h3>
+
+<p>Creamos dos objetos (o dos subprocesos) de la clase <em>Hilo</em>, en el cuerpo de la
+función <em>main</em> de la aplicación.</p>
+
+<pre>        Hilo hilo1=new Hilo("Subproceso 1");
+        Hilo hilo2=new Hilo("Supproceso 2");</pre>
+
+<p>El nombre de cada subproceso se pasa en el único parámetro de su constructor. </p>
+
+<p>El subproceso está en el estado New Thread, el subproceso está inicializado, y listo
+para ponerlo en marcha llamando al método <em>start</em> de la clase base <em>Thread</em>.</p>
+
+<p>&nbsp;</p>
+
+<h3>Poniendo en marcha el subproceso</h3>
+
+<p>El método <em>start</em> crea los recuros del sistema necesarios para que el
+subproceso se ejecute y a continuación, llama al método <em>run</em>, el subproceso se
+dice que está en el estado Runnable.</p>
+
+<pre>        hilo1.start();
+        hilo2.start();</pre>
+
+<p>&nbsp;</p>
+
+<h3>Corriendo el subproceso</h3>
+
+<p>La redefinición de la función miembro <em>run</em> en la clase derivada <em>Hilo</em>,
+es muy simple. Se ejecuta un bucle <strong>for</strong>, y dentro del bucle se imprime, el
+nombre del subproceso, que se obtiene mediante la función miembro <em>getName</em> de la
+clase <em>Thread</em> y el valor que va tomando la variable contador <em>i</em> del bucle.</p>
+
+<pre>     public void run(){
+        for(int i=1; i&lt;10; i++){
+            System.out.println(getName()+": "+i);
+    }</pre>
+
+<p>&nbsp;</p>
+
+<h3>Ejecutando la aplicación</h3>
+
+<pre>public class ThreadApp {
+  public static void main(String[] args) {
+        Hilo hilo1=new Hilo("Subproceso 1");
+        Hilo hilo2=new Hilo("Supproceso 2");
+        hilo1.start();
+        hilo2.start();
+  }
+}</pre>
+
+<p>Al ejecutar la aplicación, se crea primero el objeto <em>hilo1</em>, luego el objeto <em>hilo2</em>.
+</p>
+
+<p>El objeto <em>hilo1</em>, llama a <em>start</em>, y a continuación se llama a su
+función miembro <em>run</em>, que imprime el nombre del subproceso Subproceso1, y a
+continuación el valor de la variable contador <em>i</em>. La salida debería ser la
+siguiente.</p>
+
+<table border="1" width="26%" cellspacing="">
+  <tbody><tr>
+    <td width="100%">Subproceso1: 1<br>
+    Subproceso1: 2<br>
+    Subproceso1: 3<br>
+    Subproceso1: 4<br>
+    Subproceso1: 5<br>
+    Subproceso1: 6<br>
+    Subproceso1: 7<br>
+    Subproceso1: 8<br>
+    Subproceso1: 9</td>
+  </tr>
+</tbody></table>
+
+<p>El objeto <em>hilo2</em>, llama a <em>start</em> y a continuación a su función
+miembro <em>run</em>, que imprime el nombre del subproceso Subproceso2, y a continuación
+el valor de la variable contador <em>i</em>. La salida a continuación de la del cuadro
+anterior, debería ser la siguiente.</p>
+
+<table border="1" width="26%" cellspacing="">
+  <tbody><tr>
+    <td width="100%">Subproceso2: 1<br>
+    Subproceso2: 2<br>
+    Subproceso2: 3<br>
+    Subproceso2: 4<br>
+    Subproceso2: 5<br>
+    Subproceso2: 6<br>
+    Subproceso2: 7<br>
+    Subproceso2: 8<br>
+    Subproceso2: 9</td>
+  </tr>
+</tbody></table>
+
+<p>La salida que vemos en la consola no es la misma que se ha descrito, debido a que el
+sistema da la oprtunidad al segundo subproceso de ejecutarse tal como se ve en la figura
+de la izquierda un poco más abajo.</p>
+
+<p>&nbsp;</p>
+
+<h3>Pausa en la ejecución del subproceso</h3>
+
+<p>Podemos mejorar el método <em>run</em>, introduciendo una pausa durante la ejecución
+del subproceso</p>
+
+<pre>     public void run(){
+        for(int i=1; i&lt;10; i++){
+            System.out.println(getName()+": "+i);
+            try{
+                <strong>sleep(100)</strong>;
+            }catch(InterruptedException ex){}
+        }
+</pre>
+
+<p>Cuando se llama a la función <em>sleep</em>, el subproceso pasa del estado Runnable al
+estado Not Runnable, dando la oprtunidad a otros subprocesos de ejecutarse. La función <em>sleep</em>
+se hereda de <em>Thread</em> y su argumento es el tiempo de pausa en milisegundos. El
+bloque<strong> try..catch</strong> que comprende al método es necesario pero no tiene por
+qué hacer nada específico.</p>
+
+<p>Una vez que se ha llamado a la sentencia <em>sleep</em> el subproceso vuelve al estado
+Runnable. En general, un subproceso está en el estado Not Runnable cuando: 
+
+</p><ul>
+  <li>Se llama al método <em>sleep</em></li>
+  <li>Se llama al método <em>supend</em></li>
+  <li>Se llama al método <em>wait</em>, para esperar hasta que se satisfaga alguna condición</li>
+  <li>Cuando el subproceso está bloquedo en una operación Entrada/Salida.</li>
+</ul>
+
+<p>Cuando volvemos a correr la aplicación la salida cambia (figura de la derecha). Los
+subprocesos 1 y 2 se ejecutan una vez cada uno, primero el Subproceso1 y luego el
+Subproceso2. Para obtener este resultado, quitar los delimitadores de comentarios <strong>/*...*/</strong>
+que anulan el bloque <strong>try...catch</strong> en la definición del método <em>run</em>
+de la clase <em>Hilo</em>.</p>
+
+<table width="64%">
+  <tbody><tr>
+    <td width="31%"><img src="./La clase derivada de Thread_files/salida1.gif" alt="salida1.gif (6068 bytes)" width="216" height="297"></td>
+    <td width="69%"><img src="./La clase derivada de Thread_files/salida2.gif" alt="salida2.gif (6130 bytes)" width="216" height="297"></td>
+  </tr>
+</tbody></table>
+
+<p>&nbsp;</p>
+
+<h3>Muerte del subproceso</h3>
+
+<p>Un proceso pasa al estado Death (muerto) cuando se completa su método <em>run</em>.
+Por ejemplo, cuando se completa el bucle <strong>for</strong>, se sale del bucle y se
+llega al final de la función <em>run</em>, el subproceso muere de muerte natural.</p>
+
+<p>Un subproceso se muere cuando ya no es necesario, es decir cuando 
+
+</p><ul>
+  <li>El método <em>run</em> finaliza su ejecución</li>
+  <li>Se llama al método <em>stop</em> de la clase <em>Thread</em></li>
+</ul>
+
+<p>Un subproceso en el estado Death no puede ser revivido y ejecutado de nuevo.</p>
+
+<table border="1" width="100%" cellspacing="">
+  <tbody><tr>
+    <td width="100%" bgcolor="#F7F7F7"><pre>public class Hilo extends Thread {
+  public Hilo(String nombre) {
+    super(nombre);
+  }
+     public void run(){
+        for(int i=1; i&lt;10; i++){
+            System.out.println(getName()+": "+i);
+            try{
+                sleep(100);
+            }catch(InterruptedException ex){}
+        }
+    }
+}</pre>
+    <pre>public class ThreadApp {
+  public static void main(String[] args) {
+        Hilo hilo1=new Hilo("Subproceso 1");
+        Hilo hilo2=new Hilo("Supproceso 2");
+        hilo1.start();
+        hilo2.start();
+  }
+}</pre>
+    </td>
+  </tr>
+</tbody></table>
+
+<p>&nbsp;</p>
+
+<h2><a name="Prioridades">Prioridades</a></h2>
+
+<p><img src="./La clase derivada de Thread_files/disco.gif" alt="disco.gif (1035 bytes)" align="middle" width="32" height="32"><strong>thread1</strong>:
+<a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/codigo/thread1/Hilo.java">Hilo.java</a>, <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/codigo/thread1/ThreadApplet1.java">ThreadApplet1.java</a></p>
+
+<p>Como hemos visto, en los ordenadores que tienen una única CPU, los subprocesos corren
+uno cada vez proporcionando la ilusión de procesos que se ejecutan al mismo tiempo. Se
+puede modificar la prioridad de los subprocesos después de su creación mediante <em>setPriority</em>.
+A esta función se le pasa un entero comprendido entre dos valores mínimo y máximo.
+Cuando mayor sea el entero, mayor será la prioridad con la que se ejecuta el
+correspondiente subproceso.</p>
+
+<p>La clase <em>Thread</em> define tres constantes que representan los niveles de
+prioridad relativos para los subprocesos. Tomando 1 el valor de la mínima prioridad y 10
+el valor de la máxima prioridad. 
+
+</p><ul>
+  <li>MIN_PRIORITY</li>
+  <li>MAX_PRIORITY</li>
+  <li>NORM_PRORITY</li>
+</ul>
+
+<p>Un ejemplo de subproceso de baja prioridad es el que libera la memoria no usada que se
+ejecuta en la <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/virtual.htm#La Máquina Virtual Java">Máquina
+Virtual Java.</a> Aún cuando la liberación de memoria es una tarea muy importante, su
+baja prioridad evita que que el procesador esté ocupado demasiado tiempo en ella, dejando
+a los procesos críticos el uso prioritario de la CPU. Esto no significa que en un momento
+dado se pueda agotar toda la memoria y se bloquee el sistema, ya que cuando la memoria se
+agota, los subprocesos críticos entran en estado de espera, dejando a la CPU que ejecute
+el subproceso que libera la memoria no usada.</p>
+
+<p>Para obtener el nivel del prioridad de un subproceso se usa la función <em>getPriority</em></p>
+
+<blockquote>
+  <pre>int prioridad=hilo1.getPriority();</pre>
+</blockquote>
+
+<p>Teniendo en cuanta que la prioridad es una propiedad relativa, se puede cambiar la
+prioridad de un subproceso respecto de otro aumentando o disminuyendo su valor de
+prioridad, por ejemplo,</p>
+
+<blockquote>
+  <pre>hilo2.setPriority(hilo1.getPriority()+1);</pre>
+</blockquote>
+
+<p>En el ejemplo anterior, podemos observar la prioridad, siempre que el tiempo de pausa,
+el argumento de la función <em>sleep</em>, sea pequeño (menor que 5). No obstante, vamos
+a crear un applet en el que podamos observar visualmente el efecto de la prioridad de dos
+subprocesos.</p>
+
+<table border="1" width="300" height="80">
+  <tbody><tr>
+    <td width="100%">
+    <applet code="thread1.ThreadApplet1.class" archive="jars/thread1.jar" width="300" height="80" hspace="0" vspace="0" align="middle">
+    </applet>
+    </td>
+  </tr>
+</tbody></table>
+
+<h3>Diseño</h3>
+
+<p>Crear el applet, en modo de diseño (pestaña <strong>Design</strong>) situar dos
+paneles, uno en la parte superior y otro en la parte inferior. Sobre el panel superior
+poner dos controles de edición (<em>TextField</em>), sobre el panel inferior poner un
+botón (<em>Button</em>). </p>
+
+<p><img src="./La clase derivada de Thread_files/thread_dis1.gif" alt="thread_dis1.gif (2921 bytes)" width="377" height="176"></p>
+
+<p>Cambiar las propiedades de los controles en sus respectivas hojas de propiedades</p>
+
+<p>Establecer <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/diseno/flow.htm#El gestor FlowLayout"><em>FlowLayout</em></a>
+como gestor de diseño de los paneles, de modo que queden centrados en el panel y
+suficientemente separados horizontalmente.</p>
+
+<p>Establecer <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/diseno/flow.htm#El gestor BorderLayout"><em>BorderLayout</em></a>
+como gestor de diseño del applet, de modo que el panel superior quede al norte (NORTH) y
+el inferior al centro (CENTER) o al sur (SOUTH).</p>
+
+<p>Crear una clase denominada <em>Hilo</em>, semejante a la del apartado anterior,
+sustituyendo la sentencia que imprime un texto en la consola por la sentencia que escribe
+en un <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/events/edicion.htm#El control de edición">control de edición</a>.
+Naturalmente, dentro de la clase <em>Hilo</em> se tiene que tener acceso al control de
+edición pasándoselo en su constructor. Para observar las prioridades, se emplea un bucle
+<strong>for</strong> dentro de la función miembro <em>run</em> de 4000 o 5000 pasos, y se
+pone un tiempo de pausa en la función <em>sleep</em> pequeño de 1 ó 2.</p>
+
+<h3>Respuesta a las acciones del usuario</h3>
+
+<p>En la función respuesta a la acción de pulsar sobre el botón: 
+
+</p><ul>
+  <li>Crear dos subprocesos mediante <strong>new</strong></li>
+  <li>Establecer la prioridad de cada subproceso llamando a <em>setPriority</em> </li>
+  <li>Ponerlos en marcha llamando a la función <em>start</em>.</li>
+</ul>
+
+<h3>Comentarios</h3>
+
+<p>Puede entenderse fácilmente la clase <em>Hilo</em>, la única diferencia es que tiene
+un miembro dato que es el control de edición en el cual se va a mostrar el valor de la
+variable contador <em>i</em> del bucle <strong>for</strong>.</p>
+
+<table border="1" width="100%" cellspacing="">
+  <tbody><tr>
+    <td width="100%" bgcolor="#F7F7F7"><pre>import java.awt.*;
+
+public class Hilo extends Thread {
+    private TextField contador;
+    public Hilo(TextField contador, String nombre) {
+        super(nombre);
+        this.contador=contador;
+    }
+    public void run(){
+        for(int i=1; i&lt;5000; i++){
+            contador.setText(String.valueOf(i));
+            try{
+                sleep(1);
+            }catch(InterruptedException ex){}
+        }
+    }
+}</pre>
+    </td>
+  </tr>
+</tbody></table>
+
+<p>La definición de la función respuesta a la acción de pulsar el botón titulado
+Empieza es la siguiente.</p>
+
+<pre>    void btnEmpieza_actionPerformed(ActionEvent e) {
+        Hilo hilo1=new Hilo(tTexto1, "Subproceso 1");
+        Hilo hilo2=new Hilo(tTexto2, "Subproceso 2");
+        hilo1.setPriority(Thread.MAX_PRIORITY);
+        hilo2.setPriority(Thread.MIN_PRIORITY);
+        hilo1.start();
+        hilo2.start();
+    }</pre>
+
+<p>El Subproceso 1 tiene la máxima prioridad (está a la izquierda en el applet), y el
+Subproceso 2 tiene mínima prioridad (está a la derecha en el applet). Como vemos, el
+subproceso de más lata prioridad no anula al subproceso de más baja prioridad. El
+sistema escoge primero al de más alta prioridad, pero da alguna oportunidad al de más
+baja prioridad de ejecutarse.</p>
+
+<p>Se suguiere al lector cambiar las prioridades relativas de los subprocesos, y en cada
+uno de los casos observar el efecto del cambio en el tiempo de pausa, (argumento de la
+función <em>sleep</em>).</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="Control de la ejecución de los subprocesos">Control de la ejecución de los
+subprocesos</a></h2>
+
+<p><img src="./La clase derivada de Thread_files/disco.gif" alt="disco.gif (1035 bytes)" align="middle" width="32" height="32"><strong>thread3</strong>:
+<a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/codigo/thread3/Hilo.java">Hilo.java</a>, <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/threads/codigo/thread3/ThreadApplet3.java">ThreadApplet3.java</a></p>
+
+<p>Vamos a crear un applet en el que corra un subproceso: 
+
+</p><ul>
+  <li>El subproceso se pone en marcha pulsando en el botón titulado Empieza</li>
+  <li>Se pone en estado de&nbsp; espera pulsando en el botón Pausa, se reanuda su ejecución
+    pulsando en el mismo botón que ahora se titula Continua. </li>
+  <li>Se para o mata el subproceso pulsando en el botón titulado Parar.</li>
+</ul>
+
+<table border="1" width="300" height="80">
+  <tbody><tr>
+    <td width="100%">
+    <applet code="thread3.ThreadApplet3.class" archive="jars/thread3.jar" width="300" height="80" hspace="0" vspace="0" align="middle">
+    </applet>
+    </td>
+  </tr>
+</tbody></table>
+
+<h3>Diseño</h3>
+
+<p>Crear el applet, en modo de diseño (pestaña <strong>Design</strong>) situar dos
+paneles, uno en la parte superior y otro en la parte inferior. Sobre el panel superior
+poner un control de edición (<em>TextField</em>), sobre el panel inferior poner tres
+botones (<em>Button</em>).</p>
+
+<p><img src="./La clase derivada de Thread_files/thread_dis2.gif" alt="thread_dis2.gif (2870 bytes)" width="397" height="159"></p>
+
+<p>Cambiar las propiedades de los controles en sus respectivas hojas de propiedades</p>
+
+<p>Establecer <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/diseno/flow.htm#El gestor FlowLayout"><em>FlowLayout</em></a>
+como gestor de diseño de los paneles, de modo que queden centrados en el panel y
+suficientemente separados horizontalmente.</p>
+
+<p>Establecer <a href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/applets/diseno/flow.htm#El gestor BorderLayout"><em>BorderLayout</em></a>
+como gestor de diseño del applet, de modo que el panel superior quede al norte (NORTH) y
+el inferior al centro (CENTER) o al sur (SOUTH).</p>
+
+<p>Crear un clase <em>Hilo</em> semejante a la estudiada en el apartado anterior,
+sustituyendo el bucle <strong>for</strong> por un bucle sin fin, <strong>while(true)</strong>.
+La clase <em>Hilo</em> tendra como miembro dato la variable contador <em>i</em>, cuyo
+valor inicial cero se establece en el constructor</p>
+
+<table border="1" width="100%" cellspacing="">
+  <tbody><tr>
+    <td width="100%" bgcolor="#F7F7F7"><pre>import java.awt.*;
+
+public class Hilo extends Thread {
+    private TextField contador;
+    private int i=0;
+    public Hilo(TextField contador, String nombre) {
+        super(nombre);
+        this.contador=contador;
+        i=0;
+    }
+    public void run(){
+        while(true){
+            i++;
+            contador.setText(String.valueOf(i));
+            try{
+                sleep(200);
+            }catch(InterruptedException ex){}
+        }
+    }
+}</pre>
+    </td>
+  </tr>
+</tbody></table>
+
+<h3>Funciones respuesta</h3>
+
+<p>En modo diseño (pestaña <strong>Design</strong>), haciendo doble-clic sobre cada uno
+de los botones se genera el nombre de la función respuesta.</p>
+
+<p>En la función respuesta a la acción de pulsar el botón titulado Empieza, se crea el
+subproceso y se pone en marcha, tal como se ha visto en el apartado anterior.</p>
+
+<pre>    void btnEmpezar_actionPerformed(ActionEvent e) {
+        btnPausa.setEnabled(true);
+        btnParar.setEnabled(true);
+        btnPausa.setLabel("  Pausa  ");
+        bPausa=true;
+        if(hilo1==null){
+            hilo1=new Hilo(tTexto1, "Subproceso 1");
+            hilo1.start();
+        }
+    }</pre>
+
+<p>En la función respuesta a la acción de pulsar en el botón Pausa, se llama a dos
+funciones de la clase <em>Thread</em>: <em>suspend</em> y <em>resume</em>. La primera pone
+el subproceso en estado Not Runnable hasta que una llamada a <em>resume</em> lo pone de
+nuevo en estado Runnable. Según sea el valor <strong>true</strong> o <strong>false</strong>
+de un miembro dato <em>bPausa</em> de tipo <strong>boolean</strong> se cambia el título
+del botón y se llama a <em>suspend</em> o a <em>resume</em>, tal como se ve en la
+definición de la función respuesta.</p>
+
+<pre>    void btnPausa_actionPerformed(ActionEvent e) {
+        if(bPausa==true){
+            hilo1.suspend();
+            btnPausa.setLabel("Continua");
+            bPausa=false;
+        }else{
+            btnPausa.setLabel("  Pausa  ");
+            hilo1.resume();
+            bPausa=true;
+        }
+    }</pre>
+
+<p>En la definición de la función miembro <em>run</em>, de la clase <em>Hilo</em>, se
+ejecuta un bucle sin fin. Tiene que haber algún modo de terminar la ejecución del
+subproceso. Ya hemos visto que un subproceso alcanza el estado Death (muerte), cuando se
+llega al final de la&nbsp; función <em>run</em>. El otro modo, es llamar desde el
+subproceso a la función <em>stop</em> miembro de la clase <em>Thread</em>.</p>
+
+<p>La definición de la función respuesta a la pulsación sobre el botón Parar es la
+siguiente</p>
+
+<pre>    void btnParar_actionPerformed(ActionEvent e) {
+        hilo1.stop();
+        hilo1=null;
+    }</pre>
+
+<p>Una vez que el subproceso <em>hilo1</em> está en estado Death no se puede volver a
+llamar desde <em>hilo1</em> a <em>start</em> para ponerlo en marcha, hay que volver a
+crear un nuevo subproceso. Esta es la razón por la que se asigna <strong>null</strong> a <em>hilo1</em>
+una vez parado el subproceso mediante la función <em>stop</em>. En la función respuesta
+a la acción de pulsar en el botón titulado Empieza escribimos</p>
+
+<pre>        if(hilo1==null){
+            hilo1=new Hilo(tTexto1, "Subproceso 1");
+            hilo1.start();
+        }</pre>
+
+<p>&nbsp;</p>
+
+
+</body></html>
