@@ -19,9 +19,9 @@ public class CtrlPlantilla {
     //PLANTILLA, EN REALIDAD GUARDARA EL OBJECT[2] CON LOS ATRIBUTOS EL DE 
     //GETPOND DE PLANTILLA
     
-    public static double[] cargarPlantilla(String nom){
+    public static int[] cargarPlantilla(String nom){
         //llamar a la capa de persistencia que nos cargue una plantilla
-        double[] lista = new double[9];
+        int[] lista = new int[9];
         lista[0] = 7;
         lista[1] = 9;
         lista[2] = 0;
@@ -31,17 +31,17 @@ public class CtrlPlantilla {
         lista[6] = 8;
         lista[7] = 3;
         lista[8] = 13;
-        //double[] lista = null;
+        //int[] lista = null;
         return lista;
     }
     
     public static void guardarPlantilla(Object[] ob){
         //llamar a la capa de persistencia que guarde la plantilla que nos han pasado
-        Map<String, Double> mapa = new HashMap<String,Double>();
+        Map<String, Integer> mapa = new HashMap<String,Integer>();
         mapa = (Map)ob[1];
         for (String clave : mapa.keySet()) {   
-            Double valor = mapa.get(clave);
-            System.out.println("Clave: " + clave + ": " + valor);
+            Integer valor = mapa.get(clave);
+            //System.out.println("Clave: " + clave + ": " + valor);
         }
     }
     

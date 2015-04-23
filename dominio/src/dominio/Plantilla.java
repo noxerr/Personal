@@ -13,7 +13,7 @@ import dominio.controlador.CtrlPlantilla;
 public class Plantilla {
 
     private String nom;
-    private double votacioEq, votacioDif, reunio, conferencia, dinar, lleure, partit, edat, religio;
+    private int votacioEq, votacioDif, reunio, conferencia, dinar, lleure, partit, edat, religio;
     //private CtrlPlantilla control;
     
     //para k lo kereis?
@@ -30,71 +30,71 @@ public class Plantilla {
     // MODIFICADORA
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de votacioEq val ‘p’
-    public void modpVotacio(double p){
+    public void modpVotacio(int p){
         this.votacioEq = p;
     }
 
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de votacioDif val ‘p’
-    public void modpVotacioDif(double p){
+    public void modpVotacioDif(int p){
         this.votacioDif = p;
     }
 
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de reunio val ‘p’
-    public void modpReunio(double p){
+    public void modpReunio(int p){
         this.reunio = p;
     }
 
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de conferencia val ‘p’
-    public void modpConf(double p){
+    public void modpConf(int p){
         this.conferencia = p;
     }
 
 
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de dinar val ‘p’
-    public void modpDinar(double p){
+    public void modpDinar(int p){
         this.dinar = p;
     }
 
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de Lleure val ‘p’
-    public void modpLleure(double p){
+    public void modpLleure(int p){
         this.lleure = p;
     }
 
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de partit val ‘p’
-    public void modpPartit(double p){
+    public void modpPartit(int p){
         this.partit = p;
     }
 
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de edat val ‘p’
-    public void modpEdat(double p){
+    public void modpEdat(int p){
         this.edat = p;
     }
 
     // Pre: plantilla amb nom diferent de “default”
     // Post: ara la ponderacio de reunio val ‘p’
-    public void modpReligio(double p){
+    public void modpReligio(int p){
         this.religio = p;
     }
 
     // CONSULTORA
     //Pre: dip1 i dip2 existeixen i son diputats diferents
     //Post: retorna l’afinitat entre dip1 i dip2
-    public double calculAfinitat(double[] lista){
-        double total = 0;
+    public int calculAfinitat(int[] lista){
+        int total = 0;
         Object[] a = getPond();
-        Map<String,Double> mapa = (Map) a[1];
+        Map<String,Integer> mapa = (Map) a[1];
         int i = 0;
         for (String clave : mapa.keySet()) {   
-            Double valor = mapa.get(clave);
+            int valor = mapa.get(clave);
             total += (valor*lista[i]);
-            System.out.println("Total: " + total);
+            if (i<9)i++; //para evitar errores
         }
         
         return total;
@@ -106,7 +106,7 @@ public class Plantilla {
     public Object[] getPond(){
         Object[] retorno = new Object[2];
         retorno[0] = this.nom;
-        Map<String, Double> Pair = new HashMap<String, Double>();
+        Map<String, Integer> Pair = new HashMap<String, Integer>();
         Pair.put("votacioEq", this.votacioEq);
         Pair.put("votacioDif", this.votacioDif);
         Pair.put("reunio", this.reunio);
@@ -125,7 +125,7 @@ public class Plantilla {
     
     
     public void cargarPlantilla(){
-        double[] nueva = CtrlPlantilla.cargarPlantilla(this.nom);
+        int[] nueva = CtrlPlantilla.cargarPlantilla(this.nom);
         try {
             if (nueva == null) throw new Exception();
             else {
@@ -155,11 +155,12 @@ public class Plantilla {
         Plantilla p = new Plantilla("pepito");
         p.cargarPlantilla();
         p.guardarPlantilla();
-        double[] lista = new double[9];
+        int[] lista = new int[9];
         for (int i = 0; i <9; i++){
-            lista[i] = 1.5;
+            lista[i] = i;
         }
-        p.calculAfinitat(lista);
+        int total = p.calculAfinitat(lista);
+        System.out.println("Total: " + total);
     }
     
 }
